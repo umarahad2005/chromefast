@@ -1,0 +1,158 @@
+{
+  "meta": {
+    "date": "2026-11-17T16:02:32.869Z",
+    "chrome": "156.0.8078.82",
+    "viewport": {
+      "width": 1280,
+      "height": 800
+    },
+    "runs": 3
+  },
+  "rows": [
+    {
+      "page": "Hacker News front page (list)",
+      "url": "https://news.ycombinator.com/",
+      "screenshot": {
+        "ms": 148,
+        "bytes": 109779,
+        "tokensPerScreen": 1366,
+        "screensToSeeWholePage": 2,
+        "tokensWholePage": 2732,
+        "clickTargetsWithRefs": 0
+      },
+      "tree": {
+        "ms": 151,
+        "chars": 41015,
+        "tokens": 10254,
+        "coversWholePage": true,
+        "actionableElements": 469
+      },
+      "locateOne": {
+        "target": "link \"new\"",
+        "ms": 39,
+        "tokens": 9
+      },
+      "text": {
+        "ms": 9,
+        "chars": 4231,
+        "tokens": 1058
+      }
+    },
+    {
+      "page": "Wikipedia big table (countries by population)",
+      "url": "https://en.wikipedia.org/wiki/List_of_countries_and_dependencies_by_population",
+      "screenshot": {
+        "ms": 218,
+        "bytes": 138478,
+        "tokensPerScreen": 1366,
+        "screensToSeeWholePage": 34,
+        "tokensWholePage": 46444,
+        "clickTargetsWithRefs": 0
+      },
+      "tree": {
+        "ms": 1101,
+        "chars": 281904,
+        "tokens": 70476,
+        "coversWholePage": true,
+        "actionableElements": 3112
+      },
+      "locateOne": {
+        "target": "heading \"List of countries and dependencies by population\"",
+        "ms": 58,
+        "tokens": 18
+      },
+      "text": {
+        "ms": 39,
+        "chars": 58156,
+        "tokens": 14539
+      }
+    },
+    {
+      "page": "GitHub repo page (app-like)",
+      "url": "https://github.com/microsoft/playwright",
+      "screenshot": {
+        "ms": 426,
+        "bytes": 81276,
+        "tokensPerScreen": 1366,
+        "screensToSeeWholePage": 11,
+        "tokensWholePage": 15026,
+        "clickTargetsWithRefs": 0
+      },
+      "tree": {
+        "ms": 231,
+        "chars": 30686,
+        "tokens": 7672,
+        "coversWholePage": true,
+        "actionableElements": 305
+      },
+      "locateOne": {
+        "target": "link \"Issues\"",
+        "ms": 51,
+        "tokens": 15
+      },
+      "text": {
+        "ms": 16,
+        "chars": 9297,
+        "tokens": 2325
+      }
+    },
+    {
+      "page": "TodoMVC demo (web app)",
+      "url": "https://demo.playwright.dev/todomvc/",
+      "screenshot": {
+        "ms": 106,
+        "bytes": 25002,
+        "tokensPerScreen": 1366,
+        "screensToSeeWholePage": 1,
+        "tokensWholePage": 1366,
+        "clickTargetsWithRefs": 0
+      },
+      "tree": {
+        "ms": 19,
+        "chars": 440,
+        "tokens": 110,
+        "coversWholePage": true,
+        "actionableElements": 4
+      },
+      "locateOne": {
+        "target": "textbox \"What needs to be done?\"",
+        "ms": 14,
+        "tokens": 9
+      },
+      "text": {
+        "ms": 6,
+        "chars": 148,
+        "tokens": 37
+      }
+    },
+    {
+      "page": "W3C ARIA data grid example",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/grid/examples/data-grids/",
+      "screenshot": {
+        "ms": 147,
+        "bytes": 124032,
+        "tokensPerScreen": 1366,
+        "screensToSeeWholePage": 38,
+        "tokensWholePage": 51908,
+        "clickTargetsWithRefs": 0
+      },
+      "tree": {
+        "ms": 203,
+        "chars": 41457,
+        "tokens": 10365,
+        "coversWholePage": true,
+        "actionableElements": 284
+      },
+      "locateOne": {
+        "target": "grid",
+        "ms": 37,
+        "tokens": 468
+      },
+      "text": {
+        "ms": 21,
+        "chars": 28998,
+        "tokens": 7250
+      }
+    }
+  ]
+}

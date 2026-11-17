@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.0 — 2026-11-17
+- New focus: logged-in business dashboards. README credits Playwright MCP and explains what ChromeFast adds.
+- `bench/`: reproducible benchmark (screenshot vs page text vs tree vs locate-one) on 5 public pages in real Chrome, with results and an honest caveat (full tree dumps can cost more than screenshots).
+- Dashboard recipes: Meta Ads Manager & Business Suite (live-tested), Google Ads, GA4, Search Console, Shopify admin (need testers).
+- Skill now cites measured numbers and links the dashboard recipes.
+
 ## 0.1.0 — 2026-11-17
 - First release: `chromefast` skill (ladder, speed rules, safety), tool map, recipes.
 - Agents: `page-reader` (read-only), `page-operator` (edits with approval gates).

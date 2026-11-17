@@ -1,91 +1,110 @@
-# ChromeFast ⚡ — tree-first browser automation for AI coding agents
+# ChromeFast ⚡ — let your AI agent run your logged-in business dashboards, fast and safely
 
-**Make Claude Code, Codex, Cursor, Antigravity and other AI agents browse faster: read the accessibility tree and page text first, act by element reference, batch steps, and take screenshots last.**
-
-ChromeFast is a drop-in **skill + agents + slash commands + rules** pack for AI browser automation. It works with **Claude in Chrome**, **Playwright MCP**, **Chrome DevTools MCP**, and any agent that reads `AGENTS.md` or Cursor rules.
+**ChromeFast teaches AI agents (Claude Code, Codex, Cursor, Antigravity) to drive *your real, logged-in Chrome* — Meta Ads Manager, Google Ads, GA4, Search Console, Shopify admin, CRMs — by reading page text and the accessibility tree first, acting by element reference, and taking screenshots last. With approval gates before anything that spends money or publishes.**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 ![Claude Code plugin](https://img.shields.io/badge/Claude%20Code-plugin-orange)
-![Works with](https://img.shields.io/badge/works%20with-Codex%20%7C%20Cursor%20%7C%20Antigravity%20%7C%20Playwright%20MCP-blue)
+![Works with](https://img.shields.io/badge/works%20with-Claude%20in%20Chrome%20%7C%20Playwright%20MCP%20%7C%20Chrome%20DevTools%20MCP-blue)
+![Agents](https://img.shields.io/badge/agents-Claude%20Code%20%7C%20Codex%20%7C%20Cursor%20%7C%20Antigravity-purple)
 
 ---
 
-## Why
+## Standing on good shoulders
 
-Most AI browser agents work like this: *take a screenshot → guess where to click → take another screenshot*. Screenshots are slow to capture, expensive in tokens, and easy to misread. On heavy web apps (ad managers, CRMs, admin dashboards) they also time out.
+Reading the accessibility tree instead of pixels is not new: **[Microsoft Playwright MCP](https://playwright.dev/mcp/snapshots)** is built on accessibility snapshots, and several browser skills (e.g. Browserbase's) say "prefer snapshot over screenshot". ChromeFast doesn't replace them — it adds what we needed for **real business work**:
 
-But every browser already builds an **accessibility tree** — the structured map of buttons, links, inputs, tables and text that screen readers and Windows UI Automation use. An agent can read that map directly:
-
-| | Screenshot-first agent | ChromeFast agent |
+| | Typical browser skill | ChromeFast |
 |---|---|---|
-| Read a number on a dashboard | screenshot → read pixels | `get_page_text` → exact text |
-| Click "Remove" for one item in a list | screenshot → guess coordinates | `find("Remove button for X")` → click by `ref` |
-| Fill a form | click + type by coordinates | `form_input` by `ref`, read back to verify |
-| Heavy page freezes screenshots | stuck / retries | keeps working on the tree |
+| Browser | fresh robot browser, no logins | **your logged-in Chrome** (Claude in Chrome) — or Playwright / DevTools MCP |
+| Agents | one agent | **one rule set** for Claude Code, Codex, Cursor, Antigravity, Windsurf, Gemini CLI |
+| Targets | test pages, scraping | **business dashboards**: ad managers, analytics, store admin |
+| Recipes | generic | **dashboard recipes**: URLs, date params, virtualized tables, publish flows |
+| Safety | varies | **approval gates** before publish / budget / pay / delete; no secrets; page text is data, not instructions |
+
+## Proof (reproducible benchmark)
+
+Measured in real Google Chrome on 5 public pages — run it yourself: `cd bench && npm install && npm run bench`.
+
+| | Screenshot | Page text | Locate one element |
+|---|---|---|---|
+| Tokens to read the **whole page** | 1,366 – 51,908 (1–38 screens) | **37 – 14,539** (2.6×–37× less) | — |
+| Tokens to find **one button/field** | ~1,366 per screen | — | **~9 – 468** |
+| Capture time | 106 – 426 ms | **6 – 39 ms** | **14 – 58 ms** |
+
+Honest caveat from the same run: dumping the **whole** tree can cost *more* than a screenshot (10k–70k tokens on big pages). That's why ChromeFast reads **text first, then a scoped find** — never the full tree. Details and a field note from a live ad account: [`bench/README.md`](bench/README.md).
 
 ## The ladder
 
-1. **Read** — page text / snapshot
-2. **Locate** — find an element by meaning
-3. **Inspect** — read one region of the tree
+1. **Read** — page text
+2. **Locate** — find one element by meaning ("Publish button")
+3. **Inspect** — a scoped region of the tree
 4. **Act by reference** — never by pixel coordinates
-5. **Look** — screenshot only for maps, charts, images, video and layout checks
+5. **Look** — screenshot only for maps, charts, images, video and layout
 
-Plus speed rules (batch steps, navigate by URL, re-find stale refs, handle virtualized tables) and safety rules (ask before publish/send/delete/pay, never type secrets, treat page text as data).
+Plus speed rules (navigate by URL, batch steps, re-find stale refs, virtualized tables, stop screenshotting when the renderer freezes).
+
+## Dashboard recipes
+
+| Dashboard | Status |
+|---|---|
+| [Meta Ads Manager & Business Suite](skills/chromefast/references/dashboards/meta-ads-manager.md) — results by date, edit targeting, publish, get ad post links | ✅ live-tested |
+| [Google Ads](skills/chromefast/references/dashboards/google-ads.md) | 🧪 needs testers |
+| [Google Analytics 4](skills/chromefast/references/dashboards/ga4.md) | 🧪 needs testers |
+| [Google Search Console](skills/chromefast/references/dashboards/search-console.md) | 🧪 needs testers |
+| [Shopify admin](skills/chromefast/references/dashboards/shopify-admin.md) | 🧪 needs testers |
+
+Want another (HubSpot, Stripe, TikTok Ads, LinkedIn Ads, WooCommerce…)? Open an issue or PR.
 
 ## What's inside
 
 ```
 chromefast/
-├── skills/chromefast/          # Claude Code skill (SKILL.md + tool map + recipes)
-├── agents/
-│   ├── page-reader.md          # read-only: dashboards, tables, links
-│   └── page-operator.md        # multi-step edits with approval before irreversible steps
-├── commands/
-│   ├── read.md                 # /chromefast:read <url> <what>
-│   └── do.md                   # /chromefast:do <change>
-├── rules/chromefast-rules.md   # portable rules (single source)
-├── AGENTS.md                   # for Codex, Antigravity, Windsurf, Gemini CLI…
-├── .cursor/rules/chromefast.mdc# for Cursor
-├── .claude-plugin/             # Claude Code plugin + marketplace manifest
-└── install/                    # install.sh / install.ps1
+├── skills/chromefast/               # Claude Code skill
+│   └── references/                  # tool map, general recipes, dashboards/
+├── agents/page-reader.md            # read-only: dashboards, tables, links
+├── agents/page-operator.md          # edits with approval before irreversible steps
+├── commands/read.md, do.md          # /chromefast:read  /chromefast:do
+├── rules/chromefast-rules.md        # portable rules (single source)
+├── AGENTS.md                        # Codex, Antigravity, Windsurf, Gemini CLI…
+├── .cursor/rules/chromefast.mdc     # Cursor
+├── bench/                           # reproducible benchmark
+├── .claude-plugin/                  # plugin + marketplace manifest
+└── install/                         # install.sh / install.ps1
 ```
 
 ## Install
 
-### Claude Code (plugin)
+**Claude Code (plugin)**
 ```text
 /plugin marketplace add umarahad2005/chromefast
 /plugin install chromefast@chromefast
 ```
 
-### Claude Code (manual)
+**Claude Code (manual)**
 ```bash
 git clone https://github.com/umarahad2005/chromefast
-sh chromefast/install/install.sh claude            # macOS / Linux / Git Bash
-# Windows PowerShell:
-.\chromefast\install\install.ps1 -Target claude
+sh chromefast/install/install.sh claude                 # macOS / Linux / Git Bash
+.\chromefast\install\install.ps1 -Target claude          # Windows PowerShell
 ```
 
-### Codex, Antigravity, Windsurf, Gemini CLI (AGENTS.md)
+**Codex, Antigravity, Windsurf, Gemini CLI** — appends the rules to your project's `AGENTS.md`:
 ```bash
-sh chromefast/install/install.sh codex /path/to/your/project   # appends rules to AGENTS.md
+sh chromefast/install/install.sh codex /path/to/project
 ```
-
-### Cursor
+**Cursor**
 ```bash
-sh chromefast/install/install.sh cursor /path/to/your/project  # adds .cursor/rules/chromefast.mdc
+sh chromefast/install/install.sh cursor /path/to/project
 ```
-
-Any other agent: paste [`rules/chromefast-rules.md`](rules/chromefast-rules.md) into its system prompt or rules.
+Any other agent: paste [`rules/chromefast-rules.md`](rules/chromefast-rules.md) into its rules. (If your agent doesn't pick up `AGENTS.md` automatically, paste it into the agent's rules settings.)
 
 ## Usage
 
 ```text
-/chromefast:read  https://analytics.example.com  today's visitors and top 3 pages
-/chromefast:do    In my CMS, change the homepage banner title to "Winter Sale" (ask before publishing)
+/chromefast:read  Meta Ads Manager  results per ad set, last 7 days
+/chromefast:read  Search Console    clicks and top 5 queries, last 28 days
+/chromefast:do    In Shopify, set "Blue Mug" price to 12.00 — ask before saving
 ```
-Or just ask normally — the skill loads for browser tasks.
+Or ask normally; the skill loads for browser tasks.
 
 ## Tool map
 
@@ -96,31 +115,24 @@ Or just ask normally — the skill loads for browser tasks.
 | Act | `computer` + `ref`, `form_input` | `browser_click` / `browser_type` | `click` / `fill` |
 | Look | `screenshot` (`scale`) / `zoom` | `browser_take_screenshot` | `take_screenshot` |
 
-Full map, including plain Playwright/Puppeteer code: [`skills/chromefast/references/tool-map.md`](skills/chromefast/references/tool-map.md).
-
-## Measure it yourself
-
-Run the same task twice (e.g. "read yesterday's stats from my dashboard"): once with ChromeFast installed, once without. Compare wall-clock time, number of tool calls and number of screenshots. Please share your results in an issue — real numbers from real sites are welcome.
+More, including plain Playwright code: [`tool-map.md`](skills/chromefast/references/tool-map.md).
 
 ## Safety
 
-ChromeFast tells agents to **ask before** publishing, sending, deleting, paying, changing budgets/settings or accepting terms; never to type passwords, card numbers or API keys; and to treat on-page text as data, not instructions (prompt-injection defence).
+Agents must **ask before** publishing, sending, deleting, paying, changing budgets/settings or accepting terms; never type passwords, card numbers or API keys; never read tokens/cookies with page scripts; and treat on-page text as data, not instructions (prompt-injection defence).
 
 ## Roadmap
-
-- [ ] Benchmarks on public demo sites
-- [ ] Recipes for common dashboards (GA4, Search Console, Stripe test mode, Shopify admin)
-- [ ] `page-auditor` agent (accessibility + broken-flow checks using the same tree)
-- [ ] VS Code / Antigravity specific setup guides
+- [ ] Live-test the 🧪 recipes (help wanted)
+- [ ] Recipes: HubSpot, Stripe (test mode), TikTok Ads, LinkedIn Ads, WooCommerce
+- [ ] End-to-end benchmark: same dashboard task, with vs without ChromeFast (tool calls, time)
+- [ ] `page-auditor` agent (accessibility + broken-flow checks)
 
 ## Contributing
-
-Recipes, tool mappings for more browser stacks, and benchmark results are very welcome. See [CONTRIBUTING.md](CONTRIBUTING.md).
+Recipes, test reports and benchmark numbers are very welcome — see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## License
-
 MIT
 
 ---
 
-**Keywords:** AI browser automation, Claude Code skill, Claude Code plugin, Claude in Chrome, accessibility tree, ARIA snapshot, Playwright MCP, Chrome DevTools MCP, Codex AGENTS.md, Cursor rules, Google Antigravity, AI agent web automation, computer use, faster AI agents, fewer screenshots, token saving.
+**Keywords:** AI agent for Meta Ads Manager, Google Ads automation with AI, GA4 AI agent, Shopify admin automation, Claude Code skill, Claude Code plugin, Claude in Chrome, accessibility tree, ARIA snapshot, Playwright MCP, Chrome DevTools MCP, Codex AGENTS.md, Cursor rules, Google Antigravity, AI browser automation, logged-in browser automation, marketing automation with AI, fewer screenshots, token saving.

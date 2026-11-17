@@ -9,8 +9,8 @@
     {
       "name": "chromefast",
       "source": "./",
-      "description": "Tree-first browser automation: accessibility tree and page text before screenshots. Skill, page-reader and page-operator agents, /read and /do commands.",
-      "version": "0.1.0"
+      "description": "Let your AI agent run logged-in business dashboards (Meta Ads, Google Ads, GA4, Search Console, Shopify) fast and safely: page text and accessibility tree first, screenshots last, approval gates.",
+      "version": "0.2.0"
     }
   ]
 }
