@@ -7,6 +7,10 @@
 ![Works with](https://img.shields.io/badge/works%20with-Claude%20in%20Chrome%20%7C%20Playwright%20MCP%20%7C%20Chrome%20DevTools%20MCP-blue)
 ![Agents](https://img.shields.io/badge/agents-Claude%20Code%20%7C%20Codex%20%7C%20Cursor%20%7C%20Antigravity-purple)
 
+<p align="center"><img src="media/chromefast-reel-preview.gif" alt="ChromeFast reel preview: the agent finds the input box by name, then lightning hits the 37x stat" width="300" /></p>
+
+🎬 **Videos:** [▶ 35-second benchmark video](media/chromefast-benchmark.mp4) · [▶ 25-second reel](media/chromefast-reel.mp4)
+
 ---
 
 ## Standing on good shoulders

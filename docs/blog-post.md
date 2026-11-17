@@ -7,7 +7,7 @@ tags: ai, claude, marketing, opensource
 
 I run ads for a small travel business. I started using Claude Code with Claude in Chrome to do real work inside **our logged-in Meta Ads Manager**: read results by date, split location targeting between two ad sets, publish, and collect the ad post links for our team.
 
-The usual agent loop is *screenshot → guess → click → screenshot*. On Ads Manager's heavy editor, the screenshot call **timed out at 30 seconds six times** in one session. What kept working was reading the page as **text** and the **accessibility tree** — the same structure screen readers and Windows UI Automation use. The agent found "Remove button for <place>" by name, clicked it by reference, read the list back as text, and published.
+The usual agent loop is *screenshot → guess → click → screenshot*. On Ads Manager's heavy editor, the screenshot call **timed out at 30 seconds six times** in one session. What kept working was reading the page as **text** and the **accessibility tree** — the same structure screen readers and Windows UI Automation use. The agent found the "Remove" button for one place by name, clicked it by reference, read the list back as text, and published.
 
 So I packaged that habit into **ChromeFast**.
 
