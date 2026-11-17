@@ -1,0 +1,13 @@
+{
+  "name": "chromefast",
+  "version": "0.1.0",
+  "description": "Tree-first browser automation for AI agents: read the accessibility tree and page text, act by reference, batch steps, screenshot last. Skill + agents + commands for Claude Code with Claude in Chrome, Playwright MCP and Chrome DevTools MCP.",
+  "author": {
+    "name": "umarahad2005",
+    "url": "https://github.com/umarahad2005"
+  },
+  "homepage": "https://github.com/umarahad2005/chromefast",
+  "repository": "https://github.com/umarahad2005/chromefast",
+  "license": "MIT",
+  "keywords": ["claude-code", "claude-in-chrome", "browser-automation", "accessibility-tree", "playwright-mcp", "chrome-devtools-mcp", "ai-agents", "skills"]
+}

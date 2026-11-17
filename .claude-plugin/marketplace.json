@@ -1,0 +1,16 @@
+{
+  "name": "chromefast",
+  "description": "ChromeFast: tree-first browser automation for AI agents (accessibility tree before screenshots).",
+  "owner": {
+    "name": "umarahad2005",
+    "url": "https://github.com/umarahad2005"
+  },
+  "plugins": [
+    {
+      "name": "chromefast",
+      "source": "./",
+      "description": "Tree-first browser automation: accessibility tree and page text before screenshots. Skill, page-reader and page-operator agents, /read and /do commands.",
+      "version": "0.1.0"
+    }
+  ]
+}
