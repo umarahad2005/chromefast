@@ -1,0 +1,49 @@
+{
+  "name": "chromefast",
+  "version": "0.2.0",
+  "description": "Tree-first browser automation for AI agents: page text and accessibility tree before screenshots, act by reference, approval gates. Installs a skill, agents and rules into Claude Code, Codex, Cursor and Antigravity.",
+  "type": "module",
+  "bin": {
+    "chromefast": "bin/chromefast.mjs"
+  },
+  "files": [
+    "bin/",
+    "skills/",
+    "agents/",
+    "commands/",
+    "rules/",
+    ".cursor/rules/chromefast.mdc",
+    "AGENTS.md",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "claude-code",
+    "claude-skills",
+    "claude-in-chrome",
+    "ai-agents",
+    "browser-automation",
+    "accessibility-tree",
+    "playwright-mcp",
+    "chrome-devtools-mcp",
+    "codex",
+    "cursor",
+    "antigravity",
+    "agents-md",
+    "meta-ads",
+    "marketing-automation"
+  ],
+  "homepage": "https://github.com/umarahad2005/chromefast#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/umarahad2005/chromefast.git"
+  },
+  "bugs": {
+    "url": "https://github.com/umarahad2005/chromefast/issues"
+  },
+  "author": "umarahad2005",
+  "license": "MIT"
+}

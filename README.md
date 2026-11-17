@@ -4,6 +4,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 ![Claude Code plugin](https://img.shields.io/badge/Claude%20Code-plugin-orange)
+[![npm](https://img.shields.io/npm/v/chromefast)](https://www.npmjs.com/package/chromefast)
 ![Works with](https://img.shields.io/badge/works%20with-Claude%20in%20Chrome%20%7C%20Playwright%20MCP%20%7C%20Chrome%20DevTools%20MCP-blue)
 ![Agents](https://img.shields.io/badge/agents-Claude%20Code%20%7C%20Codex%20%7C%20Cursor%20%7C%20Antigravity-purple)
 
@@ -77,6 +78,13 @@ chromefast/
 ```
 
 ## Install
+
+**One command (npm):**
+```bash
+npx chromefast install claude            # Claude Code: skill + agents + /chromefast:* commands
+npx chromefast install codex  ./my-app    # Codex / Antigravity / Windsurf / Gemini CLI (AGENTS.md)
+npx chromefast install cursor ./my-app    # Cursor rules
+```
 
 **Claude Code (plugin)**
 ```text
