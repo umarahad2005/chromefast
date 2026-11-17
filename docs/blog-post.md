@@ -16,7 +16,7 @@ Reading the accessibility tree isn't new: Microsoft's **Playwright MCP** is buil
 
 ## The numbers (reproducible)
 I benchmarked 5 public pages in real Chrome:
-- Reading the **whole page as text** cost **2.6×–37× fewer tokens** than the screenshots needed to see it, and was **10–25× faster** to capture.
+- Reading the **whole page as text** cost **2.6×–37× fewer tokens** than the screenshots needed to see it, and was **5.6×–27× faster** to capture than a single screenshot.
 - **Locating one button** by role/name cost **~9–470 tokens**, versus ~1,366 for every screenshot.
 - Honest surprise: dumping the **full tree** can cost *more* than a screenshot (10k–70k tokens on big pages). So the rule is **text first, then a scoped find — never the whole tree.**
 

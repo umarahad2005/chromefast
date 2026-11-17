@@ -20,7 +20,7 @@ Raw data: [`results.md`](results.md), [`results.json`](results.json).
 
 ## What this proves (and what it doesn't)
 
-1. **Reading page text is the cheapest way to read a page.** To read the whole page, text cost **2.6× to 37× fewer tokens** than the screenshots needed to see the same content, and was captured **10–25× faster** (6–39 ms vs 106–426 ms).
+1. **Reading page text is the cheapest way to read a page.** To read the whole page, text cost **2.6× to 37× fewer tokens** than the screenshots needed to see the same content, and was captured **5.6×–27× faster than a single screenshot** (6–39 ms vs 106–426 ms).
 2. **Locating one element by role/name costs almost nothing.** 9–468 tokens and 14–58 ms, versus ~1,366 tokens for every screenshot an agent takes to find a button by eye — and it returns an exact reference to click.
 3. **Dumping the whole tree is NOT always cheaper.** On Hacker News the full tree (~10k tokens) costs 7× one screenshot; on the Wikipedia table it is ~70k tokens. That is why ChromeFast says *text first, then a scoped `find`*, and *never dump the whole tree*.
 4. Not measured here: model accuracy. Screenshots also risk misreading small numbers; text and refs do not — but this benchmark only measures cost and speed.
