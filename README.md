@@ -12,6 +12,8 @@
 
 🎬 **Videos:** [▶ 35-second benchmark video](media/chromefast-benchmark.mp4) · [▶ 25-second reel](media/chromefast-reel.mp4)
 
+📝 **Read the story:** [DEV](https://dev.to/umarahad2005/i-let-my-ai-agent-run-our-meta-ads-manager-screenshots-kept-freezing-page-text-didnt-30kc) · [Medium](https://medium.com/@umarahadusmani/i-let-my-ai-agent-run-our-meta-ads-manager-screenshots-kept-freezing-page-text-didnt-41c2beca7c3c) · [Hashnode](https://umarahad.hashnode.dev/i-let-my-ai-agent-run-our-meta-ads-manager-screenshots-kept-freezing-page-text-didn-t) · [LinkedIn](https://www.linkedin.com/feed/update/urn:li:activity:7528513995826450433/) · 📦 [npm](https://www.npmjs.com/package/chromefast)
+
 ---
 
 ## Standing on good shoulders
