@@ -45,5 +45,8 @@
     "url": "https://github.com/umarahad2005/chromefast/issues"
   },
   "author": "umarahad2005",
-  "license": "MIT"
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  }
 }
